@@ -1,0 +1,192 @@
+:root {
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-duration: 250ms;
+}
+
+body {
+    background-image: linear-gradient(to bottom,
+            rgba(13, 68, 42, 0.005),
+            rgba(29, 32, 31, 0.522)),
+        url(../images/bg1.jpg);
+    background-position: center;
+    /* background-repeat: no-repeat; */
+}
+
+.search-form {
+    margin-bottom: 20px;
+    padding: 20px;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    background-color: rgba(3, 111, 62, 0.195);
+}
+
+.search-form input {
+    padding: 10px 20px;
+    width: 400px;
+
+    font-size: 22px;
+    color: #f0faf6;
+
+    background-color: rgba(119, 146, 126, 0.6);
+    border-radius: 5px;
+    border: none;
+
+    transition: all var(--animation-duration) var(--timing-function);
+}
+
+input:focus {
+    outline: 3px solid rgba(9, 225, 77, 0.8);
+}
+
+input:hover {
+    background-color: rgba(97, 153, 101, 0.867);
+}
+
+.search-form button,
+.load-more {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 22px;
+    color: #fff;
+    background-color: #096a2b67;
+    border-radius: 5px;
+    border: none;
+    transition: all var(--animation-duration) var(--timing-function);
+}
+
+.load-more {
+    top: 10%;
+    left: 50%;
+}
+
+.search-form button:focus,
+.load-more:focus {
+    background-color: #002e152b;
+    outline: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.search-form button:hover,
+.load-more:hover {
+    background-color: #02441b;
+}
+
+.search-form button[disabled] {
+    background-color: rgba(107, 106, 103, 0.633);
+}
+
+.gallery {
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1140px;
+    flex-wrap: wrap;
+    gap: 48px 24px;
+}
+
+.gallery__link {
+    overflow: hidden;
+    flex-basis: calc((100% - 3 * 24px) / 4);
+    text-decoration: none;
+    color: #fff;
+}
+
+.gallery__link:hover {
+    visibility: initial;
+    cursor: zoom-in;
+}
+
+.photo-card {
+    border: 0px solid #fff;
+    position: relative;
+    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+        0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 250ms var(--timing-function);
+    max-width: 320px;
+    height: 200px;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+}
+
+.photo-card:hover {
+    transform: scale(1.05);
+}
+
+.photo-card:hover .info {
+    opacity: 1;
+    visibility: initial;
+}
+
+.photo-card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.info {
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    pointer-events: none;
+    visibility: hidden;
+
+    background: rgba(0, 0, 0, 0.14);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    transition: opacity var(--animation-duration) var(--timing-function);
+}
+
+.info-item {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+}
+
+/*кнопка прокрутки===========*/
+.btn-up {
+    position: fixed;
+    background-color: #05674c;
+    right: 20px;
+    bottom: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 50px;
+}
+
+.btn-up::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: transparent no-repeat center center;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z'/%3E%3C/svg%3E");
+}
+
+.btn-up_hide {
+    display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .btn-up:hover {
+        background-color: #14b5ab;
+    }
+}
