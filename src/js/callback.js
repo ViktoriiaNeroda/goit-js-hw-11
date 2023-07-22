@@ -18,9 +18,9 @@ let lightbox = new SimpleLightbox('.gallery a', {
 
 export const hendleOnSearchFormInput = async event => {
   if (!event.target.value.trim()) {
-    return await (refs.searchFormBtnSubmit.disabled = true);
+    refs.searchFormBtnSubmit.disabled = true;
   } else if (event.target.value.trim().length > 0) {
-    return await (refs.searchFormBtnSubmit.disabled = false);
+    refs.searchFormBtnSubmit.disabled = false;
   }
 };
 

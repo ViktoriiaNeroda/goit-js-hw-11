@@ -20,3 +20,4 @@ refs.searchFormEl.addEventListener('submit', hendleSearchFormBtnSubmitClick);
 refs.loadMoreBtnSubmit.addEventListener('click', hendleLoadMoreBtnClick);
 
 btnUp.addEventListener();
+
